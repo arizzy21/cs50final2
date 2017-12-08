@@ -1,0 +1,64 @@
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+    body, html {
+        height: 100%;
+        color: #777;
+        line-height: 1.8;
+    }
+
+    .w3-wide {letter-spacing: 10px;}
+    .w3-hover-opacity {cursor: pointer;}
+
+main p
+{
+    text-align: center;
+}
+
+main table
+{
+    border-collapse: collapse;
+    border-spacing: 25px;
+    align-content: center;
+    margin: auto;
+}
+
+main th
+{
+     border-bottom: 1px solid;
+     height: 50px;
+}
+
+main td
+{
+    width: auto;
+    padding: 25px;
+    text-align: center;
+}
+
+main h3
+{
+    margin-top: 60px;
+    color: black;
+}
+
+main .table1 {
+background: rgba(255,255,255,0.5);
+}
+/*main*/
+/*{*/
+    /* scroll horizontally as needed */
+/*    overflow-x: auto;*/
+    /* center contents */
+/*    text-align: center;*/
+/*    margin-left: 10px;*/
+/*    color: #0d120d;*/
+/*}*/
+
+main img
+{
+    max-width: 100%;
+}
+
+/*main .table-striped*/
+/*{*/
+/*    color: #0d120d;*/
+/*}*/
