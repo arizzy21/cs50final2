@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Saved Lists
+{% endblock %}
+
+{% block main %}
+
+    <div class="w3-display w3-opacity-max" style="margin-top:40px; margin-left: -16px; background-image: url(https://ats-alltopstartups.netdna-ssl.com//wp-content/uploads/2016/12/How-to-Open-a-Coffee-Shop-.png); background-repeat: no-repeat; background-size: cover; height: 800px; width: 1500px;"> </div>
+
+    <h3 class="w3-display-topmiddle"><u>Saved Lists</u></h3>
+    {% if preexisting %}
+        <table class="table1 w3-animate-opacity w3-display-topmiddle" style="color: black; margin-top:120px">
+            <tbody>
+                {% for name in lists %}
+                    <tr>
+                        <td><b> {{name.title}} </b></td>
+                        <td> {{name.time}} </td>
+                        <td><form action="/saved" method="post"><button class="w3-center w3-button w3-light-grey" style="border: 2px solid black" type="submit" name="listname" value="{{name.title}}">View</button></form></td>
+                        <td><form action="/saved" method="post"><button class="w3-center w3-button w3-light-grey" style="border: 2px solid black" type="submit" name="deleteList" value="{{name.title}}">Delete</button></form></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="w3-animate-opacity w3-display-topmiddle" style="color: black; margin-top:120px"> You have no saved lists. </p>
+    {% endif %}
+
+{% endblock %}

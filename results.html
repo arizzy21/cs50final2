@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block main %}
+
+    <h3 class="w3-center"> {{title}} </h3>
+    {% if not edit %}
+    <h6 style="margin-top: 80px"> *This list is not saved. </h6>
+    {% endif %}
+
+    <table>
+        <thead>
+            <th> Name </th>
+            <th> Email </th>
+            <th> Employer </th>
+            <th> Industry </th>
+            <th> Function </th>
+            <th> Major </th>
+            <th> Class </th>
+            {% if edit %}
+                <th> Contacted </th>
+            {% endif %}
+        </thead>
+
+        <tbody>
+            {% for name in students %}
+                <tr>
+                    <td> {{name.Student}} </td>
+                    <td> <a href="mailto:{{name.Email}}">{{name.Email}}</td>
+                    <td> {{name.Employer}} </td>
+                    <td> {{name.Industry}} </td>
+                    <td> {{name.Function}} </td>
+                    <td> {{name.Major}} </td>
+                    <td> {{name.Class}} </td>
+                    {% if edit %}
+                        {% if name.Contacted == "No" %}
+                        <form action="/results" method="post"><td><input class="w3-check" type="checkbox" name="changeyes" value="{{title}}" id="{{name.mentor_id}}"></input></td></form>
+                        {% else %}
+
+                        <form action="/results" method="post"><td><input class="w3-check" type="checkbox" name="changeno" value="{{title}}" id="{{name.mentor_id}}" checked></input></td></form>
+                        {% endif %}
+                   {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

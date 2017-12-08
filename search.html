@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block main %}
+
+    <div class="w3-display w3-opacity-max" style="margin-top:40px; margin-left: -16px; background-image: url(https://cdn2.hercampus.com/people-in-a-coffee-shop.jpg); background-repeat: no-repeat; background-size: cover; height: 800px; width: 1500px;"> </div>
+
+    <div class="w3-animate-opacity w3-display-middle" style="margin-top: 25px">
+    <p style="color: black"><b>Choose filters by which to produce a list of contacts. You do not have to select something for each field.</b></p>
+     <form action="/search" method="post">
+        <div class="w3-center w3-animate-opacity" style="margin-top:20px">
+            <div class="w3-center w3-animate-opacity">
+                <select name = "employer">
+                    <option disabled selected value>Company</option>
+                    {% for name in companies %}
+                        <option value="{{name}}">{{name}}</option>
+                    {% endfor %}
+                </select>
+             </div>
+             <div class="w3-center w3-animate-opacity" style="margin-top:10px">
+                <select name = "industry">
+                    <option disabled selected value>Industry</option>
+                    {% for name in industries %}
+                        <option value="{{name}}">{{name}}</option>
+                    {% endfor %}
+                </select>
+             </div>
+             <div class="w3-center w3-animate-opacity" style="margin-top:10px">
+                <select name = "major">
+                    <option disabled selected value>Major</option>
+                    {% for name in majors %}
+                        <option value="{{name["Name"]}}">{{name["Name"]}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="w3-center w3-animate-opacity" style="margin-top:10px">
+                <input autocomplete="off" class="form-control" style="text-align:center"name="title" placeholder="Name this list to save" type="text"/>
+            </div>
+            <button class="w3-button w3-light-grey w3-animate-opacity" style="margin-top:12px; border: 2px solid black" name="method" type="submit" value="save">Save & Search</button>
+            </br>
+            <button class="w3-button w3-light-grey w3-animate-opacity" style="margin-top:10px; border: 2px solid black" type="submit" name="method" value="search">Search</button>
+        </div>
+    </form>
+    </div>
+{% endblock %}

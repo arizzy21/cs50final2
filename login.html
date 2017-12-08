@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+<!-- First Parallax Image with Logo Text -->
+    <div class="w3-display w3-opacity" style="margin-top:40px; margin-left: -16px; background-image: url(https://cdn.vox-cdn.com/uploads/chorus_image/image/45748220/the-wydown.0.0.jpg); background-repeat: no-repeat; background-size: cover; height: 800px; width: 1500px;"> </div>
+        <div class="w3-display-middle" style="margin-top:-120px">
+          <div class="w3-center w3-opacity-min" style="white-space:nowrap;">
+            <span class="w3-center w3-grayscale-max w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity"><span class="w3-hide-small">HUSTLE.</span></span>
+          </div>
+        </div>
+
+        <form action="/login" method="post">
+            <div class="w3-display-middle w3-animate-opacity" style="margin-top:-60px">
+                <input autocomplete="off" autofocus class="w3-padding-small w3-light-grey form-control" name="username" placeholder="Username" type="text"/>
+            </div>
+            <div class="w3-display-middle w3-animate-opacity" style="margin-top: -10px">
+                <input class="w3-padding-small w3-light-grey" name="password" placeholder="Password" type="password"/>
+            </div>
+            <button class="w3-display-middle w3-button w3-light-grey w3-animate-opacity" style="margin-top:50px; border: 2px solid black" type="submit">Log In</button>
+        </form>
+
+{% endblock %}

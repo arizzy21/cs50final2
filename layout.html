@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<!--documentation: https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_parallax&stacked=h-->
+    <title>Hustle: {% block title %}{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/styles.css" />
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    </head>
+
+    <body>
+<!-- Navbar (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-bar" style="background-color: white" id="myNavbar">
+        <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+          <i class="fa fa-bars"></i>
+        </a>
+        {% if session.user_id %}
+            <a href="/" class="w3-bar-item w3-button">HOME</a>
+            <a href="/search" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-search"></i> SEARCH</a>
+            <a href="/saved" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> SAVED</a>
+            <a href="/logout" class="w3-bar-item w3-button w3-hide-small w3-right">LOGOUT</a>
+
+        {% else %}
+            <a href="/about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
+            <a href="/login" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red"> LOG IN</a>
+            <a href="/register" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">REGISTER</a>
+        {% endif %}
+        </a>
+      </div>
+     </div>
+
+        <main class="w3-container">
+            {% block main %}{% endblock %}
+        </main>
+
+    </body>
+  <script src="../static/scripts.js"></script>
+</html>
